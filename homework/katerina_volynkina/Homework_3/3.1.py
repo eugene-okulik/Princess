@@ -1,5 +1,4 @@
 #Даны 2 числа a и b. Получить их сумму, разность и произведение
-
 def sum_numbers(num1, num2):
     return num1 + num2
 
