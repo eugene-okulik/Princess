@@ -2,8 +2,7 @@
 
 
 def calculate_result(x, y):
+    return (x + y) / 2, (x * y) ** 0.5
 
-    return (x + y)/2, (x * y) ** 0.5
 
 print(calculate_result(2, 8))
-
