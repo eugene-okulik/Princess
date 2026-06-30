@@ -7,6 +7,3 @@ def count_words(dictionary):
 
 
 count_words(words)
-
-
-
