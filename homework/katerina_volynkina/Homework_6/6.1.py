@@ -4,11 +4,11 @@ new_text = []
 
 for item in text:
     if ',' in item:
-        new_text.append((item.replace(',', 'ing,')))
+        new_text.append(item.replace(',', 'ing,'))
     elif '.' in item:
-        new_text.append((item.replace('.', 'ing.')))
+        new_text.append(item.replace('.', 'ing.'))
     else:
-        new_text.append((item + 'ing'))
+        new_text.append(item + 'ing')
 text = ' '.join(new_text)
 
 print(text)
