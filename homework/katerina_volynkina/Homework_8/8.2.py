@@ -21,6 +21,3 @@ for i in generator_fibonacci(100001):
             print(i)
             break
     count += 1
-
-
-
