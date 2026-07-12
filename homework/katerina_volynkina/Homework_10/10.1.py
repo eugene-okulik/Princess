@@ -1,0 +1,17 @@
+def finish_me(func):
+    def wrapper(*args):
+        print(*args)
+        print('finished')
+    return wrapper
+
+
+@finish_me
+def example(text):
+    print(text)
+example('print me')
+
+
+@finish_me
+def number(number):
+    print(number)
+number(5, 5)
