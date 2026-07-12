@@ -8,10 +8,14 @@ def finish_me(func):
 @finish_me
 def example(text):
     print(text)
+
+
 example('print me')
 
 
 @finish_me
 def number(number):
     print(number)
+
+
 number(5, 5)

@@ -10,4 +10,4 @@ def example(text):
     print(text)
 
 
-example('print me', count = 5)
+example('print me', count=5)
