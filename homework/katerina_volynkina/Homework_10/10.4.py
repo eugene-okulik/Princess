@@ -1,13 +1,14 @@
 def calculate(func):
     def wrapper(first, second):
         if first < 0 or second < 0:
-            return first * second
+            operation = '*'
         elif first > second:
-            return first - second
+            operation = '-'
         elif first < second:
-            return first / second
+            operation = '/'
         elif first == second:
-            return first + second
+            operation = '+'
+            return func(first, second, operation)
     return wrapper
 
 

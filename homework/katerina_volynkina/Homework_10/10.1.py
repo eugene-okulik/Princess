@@ -1,6 +1,6 @@
 def finish_me(func):
     def wrapper(*args):
-        print(*args)
+        func(*args)
         print('finished')
     return wrapper
 
@@ -18,4 +18,4 @@ def number(number):
     print(number)
 
 
-number(5, 5)
+number(5)
