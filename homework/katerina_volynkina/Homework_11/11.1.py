@@ -1,7 +1,8 @@
 class Book:
     material_pages = "бумага"
     text_present = "есть"
-    def __init__(self, title, author, pages, reserved = False, ISBN = None):
+
+    def __init__(self, title, author, pages, reserved=False, ISBN=None):
         self.title = title
         self.author = author
         self.pages = pages
@@ -9,10 +10,9 @@ class Book:
         self.ISBN = ISBN
 
 
-
 class TextBook(Book):
-    def __init__(self, title, author, pages, subject, school_class, has_tasks = False, ISBN = None):
-        super().__init__(title, author, pages, ISBN = ISBN)
+    def __init__(self, title, author, pages, subject, school_class, has_tasks=False, ISBN=None):
+        super().__init__(title, author, pages, ISBN=ISBN)
         self.subject = subject
         self.school_class = school_class
         self.has_tasks = has_tasks
