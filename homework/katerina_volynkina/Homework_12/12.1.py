@@ -55,7 +55,7 @@ class Buket():
         return sorted_cost
 
     def search_freshness(self, freshness):
-        found_freshness= []
+        found_freshness = []
         for i in self.flower:
             if i.freshness == freshness:
                 found_freshness.append(i)
