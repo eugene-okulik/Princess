@@ -19,9 +19,9 @@ class Flowers():
         self.life = life
         self.cost = cost
 
-
     def __repr__(self):
-        return f"{self.name} (цвет - {self.color}, длина - {self.lenght}см, свежесть - {self.freshness}, время жизни - {self.life}, стоимость - {self.cost})"
+        return (f"{self.name} (цвет - {self.color}, длина - {self.lenght}см, свежесть - {self.freshness}, "
+                f"время жизни - {self.life}, стоимость - {self.cost})")
 
 
 class Buket():
@@ -35,7 +35,7 @@ class Buket():
         total_life = 0
         for flower in self.flower:
             total_life += flower.life
-        flowers_life = round(total_life/len(self.flower), 2)
+        flowers_life = round(total_life / len(self.flower), 2)
         return flowers_life
 
     def sort_freshness(self):
@@ -54,7 +54,6 @@ class Buket():
         sorted_cost = sorted(self.flower, key=lambda f: f.cost)
         return sorted_cost
 
-
     def search_freshness(self, freshness):
         found_freshness= []
         for i in self.flower:
@@ -62,9 +61,10 @@ class Buket():
                 found_freshness.append(i)
         return found_freshness
 
+
 flower_1 = Flowers("Роза", 'Красный', 30, "Свежий", 2, 500)
 flower_2 = Flowers("Пион", 'Розовый', 25, "Увядший", 5, 300)
-flower_3 = Flowers("Ромашка", 'Белый', 35, "Свежий",6, 250)
+flower_3 = Flowers("Ромашка", 'Белый', 35, "Свежий", 6, 250)
 
 my_buket = Buket()
 my_buket.addition(flower_1)
