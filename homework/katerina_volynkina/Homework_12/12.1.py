@@ -1,9 +1,14 @@
 # Задание
-# Создать классы цветов: общий класс для всех цветов и классы для нескольких видов. Создать экземпляры (объекты) цветов разных видов.
-# Собрать букет (букет - еще один класс) с определением его стоимости. В букете цветы пусть хранятся в списке. Это будет список объектов.
-# Для букета создать метод, который определяет время его увядания по среднему времени жизни всех цветов в букете.
-# Позволить сортировку цветов в букете на основе различных параметров (свежесть/цвет/длина стебля/стоимость)(это тоже методы)
-# Реализовать поиск цветов в букете по каким-нибудь параметрам (например, по среднему времени жизни) (и это тоже метод).
+# Создать классы цветов: общий класс для всех цветов и классы для нескольких видов.
+# Создать экземпляры (объекты) цветов разных видов.
+# Собрать букет (букет - еще один класс) с определением его стоимости.
+# В букете цветы пусть хранятся в списке. Это будет список объектов.
+# Для букета создать метод, который определяет время его увядания
+# по среднему времени жизни всех цветов в букете.
+# Позволить сортировку цветов в букете на основе различных параметров
+# (свежесть/цвет/длина стебля/стоимость)(это тоже методы)
+# Реализовать поиск цветов в букете по каким-нибудь параметрам
+# (например, по среднему времени жизни) (и это тоже метод).
 
 class Flowers():
     def __init__(self, name, color, lenght, freshness, life, cost):
@@ -14,8 +19,10 @@ class Flowers():
         self.life = life
         self.cost = cost
 
+
     def __repr__(self):
         return f"{self.name} (цвет - {self.color}, длина - {self.lenght}см, свежесть - {self.freshness}, время жизни - {self.life}, стоимость - {self.cost})"
+
 
 class Buket():
     def __init__(self):
@@ -28,7 +35,7 @@ class Buket():
         total_life = 0
         for flower in self.flower:
             total_life += flower.life
-        flowers_life = round(total_life/len(self.flower),2)
+        flowers_life = round(total_life/len(self.flower), 2)
         return flowers_life
 
     def sort_freshness(self):
@@ -47,6 +54,7 @@ class Buket():
         sorted_cost = sorted(self.flower, key=lambda f: f.cost)
         return sorted_cost
 
+
     def search_freshness(self, freshness):
         found_freshness= []
         for i in self.flower:
@@ -63,8 +71,8 @@ my_buket.addition(flower_1)
 my_buket.addition(flower_2)
 my_buket.addition(flower_3)
 
-print(f' Состав букета', my_buket.flower)
-print(f' Среднее время увядания цветов в букете - ', my_buket.avg_life(), 'дня')
+print('Состав букета', my_buket.flower)
+print('Среднее время увядания цветов в букете - ', my_buket.avg_life(), 'дня')
 print(my_buket.sort_freshness())
 print(my_buket.sort_color())
 print(my_buket.sort_lenght())
