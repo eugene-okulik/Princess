@@ -21,17 +21,20 @@ class Flowers():
         return (f"{self.name} (цвет - {self.color}, длина - {self.lenght}см, свежесть - {self.freshness}, "
                 f"время жизни - {self.life}, стоимость - {self.cost})")
 
+
 class Roses(Flowers):
     def __init__(self, name, color, lenght, freshness, life, cost):
         super().__init__(color, lenght, freshness, life)
         self.cost = cost
         self.name = name
 
+
 class Pions(Flowers):
     def __init__(self, name, color, lenght, freshness, life, cost):
         super().__init__(color, lenght, freshness, life)
         self.cost = cost
         self.name = name
+
 
 class Romashka(Flowers):
     def __init__(self, name, color, lenght, freshness, life, cost):
