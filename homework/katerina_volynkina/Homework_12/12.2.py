@@ -57,7 +57,7 @@ class Buket():
         flowers_life = round(total_life / len(self.flower), 2)
         return flowers_life
 
-#Женя посоветовал эту функцию сделать, вместо 4-х моих однотипных
+# Женя посоветовал эту функцию сделать, вместо 4-х моих однотипных
     def sort_by(self, key):
         sorted_cost = sorted(self.flower, key=lambda f: getattr(f, key))
         return sorted_cost
