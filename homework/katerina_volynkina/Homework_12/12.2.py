@@ -87,7 +87,7 @@ my_buket.addition(flower_3)
 
 print('Состав букета', my_buket.flower)
 print('Среднее время увядания цветов в букете - ', my_buket.avg_life(), 'дня')
-print(my_buket.sort_by("lenght"))  #и вот так она вызывается
-print(my_buket.sort_by("color"))   #и вот так она вызывается
+print(my_buket.sort_by("lenght"))  # и вот так она вызывается
+print(my_buket.sort_by("color"))   # и вот так она вызывается
 print(my_buket.search_freshness("Свежий"))
 print('Стоимость всего букета -', my_buket.cost())
