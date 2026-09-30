@@ -25,5 +25,5 @@ print(data_1)
 data_2 = f[1].strftime('%A')
 print(data_2)
 now = datetime.datetime.now()
-data_3 = now - f[0]
+data_3 = now - f[2]
 print(data_3.days)
