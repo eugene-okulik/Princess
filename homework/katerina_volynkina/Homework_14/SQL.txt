@@ -1,0 +1,52 @@
+INSERT INTO students (name, second_name) VALUES ('Василиса', 'Васильева')
+SELECT * FROM students ORDER BY id DESC LIMIT 1 -- id = 23296
+
+INSERT INTO books (title, taken_by_student_id) VALUES ('Universe The Definitive visual guid', '23296')
+SELECT * FROM books WHERE taken_by_student_id = 23296
+INSERT INTO books (title, taken_by_student_id) VALUES ('Death on the Nile', '23296')
+INSERT INTO books (title, taken_by_student_id) VALUES ('Выдающиеся растения, которые изменили нашу жизнь', '23296')
+
+INSERT INTO `groups`(title, start_date, end_date) VALUES ('Всё обо всём', 'september 2026', 'december 2026')
+SELECT * FROM `groups` where title = 'Всё обо всём' -- id = 25036
+UPDATE students SET group_id = 25036 where id = 23296
+
+INSERT INTO subjects (title) VALUES ('Фитнес как психология')
+SELECT * FROM subjects where title = 'Фитнес как психология' -- id = 23518
+DELETE FROM subjects where id = 23519
+INSERT INTO subjects (title) VALUES ('Спортивная физиология')
+SELECT * FROM subjects where title = 'Спортивная физиология' -- id = 23521
+UPDATE subjects SET title = 'Анатомия' where id = 23521
+SELECT * FROM subjects where id = 23518 or id = 23521 or id = 23520
+
+INSERT INTO lessons (title, subject_id) VALUES ('Психология', '23518')
+INSERT INTO lessons (title, subject_id) VALUES ('Биомеханика', '23518')
+INSERT INTO lessons (title, subject_id) VALUES ('Эндокринология', '23520')
+INSERT INTO lessons (title, subject_id) VALUES ('МФР', '23520')
+INSERT INTO lessons (title, subject_id) VALUES ('Анатомия человека', '23521')
+INSERT INTO lessons (title, subject_id) VALUES ('Физиология', '23521')
+SELECT * FROM lessons ORDER BY id DESC LIMIT 6
+
+
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('5', '77053', '23296')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('2', '77052', '23296')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('3', '77051', '23296')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('4', '77050', '23296')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('2', '77049', '23296')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('5', '77048', '23296')
+SELECT * FROM marks ORDER BY id DESC LIMIT 6
+
+
+SELECT value FROM marks where student_id = 23296
+SELECT title FROM books where taken_by_student_id = 23296
+
+
+
+SELECT s.id, s.name Имя, s.second_name Фамилия, g.title Группа,
+       su.title Предмет, l.title Урок, m.value Оценка , b.title Книга
+FROM students s
+LEFT JOIN `groups` g ON s.group_id = g.id
+LEFT JOIN books b ON s.id = b.taken_by_student_id
+LEFT JOIN marks m ON s.id = m.student_id
+LEFT JOIN lessons l ON m.lesson_id = l.id
+LEFT JOIN subjects su ON l.subject_id = su.id
+WHERE s.id = 23296
