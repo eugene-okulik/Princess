@@ -16,16 +16,21 @@ cursor.execute("SELECT * FROM students ORDER BY id DESC LIMIT 1")
 data = cursor.fetchall()
 print(data)
 
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Universe The Definitive visual guid', {student_id})")
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Death on the Nile', {student_id})")
-cursor.execute(f"INSERT INTO books (title, taken_by_student_id) VALUES ('Выдающиеся растения, которые изменили нашу жизнь', {student_id})")
+cursor.execute(f"INSERT INTO books (title, taken_by_student_id) "
+               f"VALUES ('Universe The Definitive visual guid', {student_id})")
+cursor.execute(f"INSERT INTO books (title, taken_by_student_id) "
+               f"VALUES ('Death on the Nile', {student_id})")
+cursor.execute(f"INSERT INTO books (title, taken_by_student_id) "
+               f"VALUES ('Выдающиеся растения, которые изменили нашу жизнь', {student_id})")
+
 cursor.execute(f"SELECT * FROM books WHERE taken_by_student_id = {student_id}")
 data_1 = cursor.fetchall()
 print(data_1)
 
-cursor.execute("INSERT INTO `groups`(title, start_date, end_date) VALUES ('Всё обо всём', 'september 2026', 'december 2026')")
+cursor.execute("INSERT INTO `groups`(title, start_date, end_date) "
+               "VALUES ('Всё обо всём', 'september 2026', 'december 2026')")
 groups_id_1 = cursor.lastrowid
-cursor.execute(f"SELECT * FROM `groups` where title = 'Всё обо всём' and id = {groups_id_1}")# 25076
+cursor.execute(f"SELECT * FROM `groups` where title = 'Всё обо всём' and id = {groups_id_1}")
 data_2 = cursor.fetchone()
 print(data_2)
 cursor.execute(f"UPDATE students SET group_id = {groups_id_1} where id = {student_id}")
