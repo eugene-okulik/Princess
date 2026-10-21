@@ -39,7 +39,7 @@ cursor.execute(query, (groups_id_1,))
 data_2 = cursor.fetchone()
 print(data_2)
 query = "UPDATE students SET group_id = %s where id = %s"
-cursor.execute(query, (groups_id_1,student_id))
+cursor.execute(query, (groups_id_1, student_id))
 cursor.execute("SELECT * FROM students ORDER BY id DESC LIMIT 1")
 print(cursor.fetchall())
 
@@ -56,13 +56,13 @@ for name in subjects:
     data = cursor.fetchall()
     all.append(data)
 print(all)
-subjects_id_1, subjects_id_2, subjects_id_3= ids
+subjects_id_1, subjects_id_2, subjects_id_3 = ids
 query = "SELECT * FROM subjects where id = %s or id = %s or id = %s"
 cursor.execute(query, (subjects_id_1, subjects_id_2, subjects_id_3))
 print(cursor.fetchall())
 
-lessons = ['Психология', 'Биомеханика', 'Эндокринология', 'МФР', 'Анатомия человека','Физиология']
-subjects_id_1, subjects_id_2, subjects_id_3= ids
+lessons = ['Психология', 'Биомеханика', 'Эндокринология', 'МФР', 'Анатомия человека', 'Физиология']
+subjects_id_1, subjects_id_2, subjects_id_3 = ids
 lessons_and_subjects = [
     ('Психология', subjects_id_1),
     ('Биомеханика', subjects_id_1),
@@ -84,12 +84,12 @@ print(data_6)
 lessons_id_1, lessons_id_2, lessons_id_3, lessons_id_4, lessons_id_5, lessons_id_6 = idL
 query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
 data = [
-    ('5', lessons_id_1,student_id),
-    ('2', lessons_id_2,student_id),
-    ('3', lessons_id_3,student_id),
-    ('4', lessons_id_4,student_id),
-    ('2', lessons_id_5,student_id),
-    ('5', lessons_id_6,student_id)
+    ('5', lessons_id_1, student_id),
+    ('2', lessons_id_2, student_id),
+    ('3', lessons_id_3, student_id),
+    ('4', lessons_id_4, student_id),
+    ('2', lessons_id_5, student_id),
+    ('5', lessons_id_6, student_id)
 ]
 cursor.executemany(query, data)
 
