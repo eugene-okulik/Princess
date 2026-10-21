@@ -77,7 +77,6 @@ for name, subject_id in lessons_and_subjects:
     cursor.execute(query, (name, subject_id))
     lessons_id = cursor.lastrowid
     idL.append(lessons_id)
-
 cursor.execute("SELECT * FROM lessons ORDER BY id DESC LIMIT 6")
 data_6 = cursor.fetchall()
 print(data_6)
