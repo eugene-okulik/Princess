@@ -25,13 +25,13 @@ with open(princess_path, newline='') as csv_file:
         data.append(row)
 for row in data:
     name, second_name, group_title, book_title, subject_title, lesson_title, mark_value = row
-    query = '''SELECT s.id, s.name Имя, s.second_name Фамилия, g.title Группа, 
-    su.title Предмет, l.title Урок, m.value Оценка, b.title Книга 
-    FROM students s JOIN `groups` g ON s.group_id = g.id 
-    LEFT JOIN books b ON s.id = b.taken_by_student_id 
-    LEFT JOIN marks m ON s.id = m.student_id 
-    LEFT JOIN lessons l ON m.lesson_id = l.id 
-    LEFT JOIN subjects su ON l.subject_id = su.id 
+    query = '''SELECT s.id, s.name Имя, s.second_name Фамилия, g.title Группа,
+    su.title Предмет, l.title Урок, m.value Оценка, b.title Книга
+    FROM students s JOIN `groups` g ON s.group_id = g.id
+    LEFT JOIN books b ON s.id = b.taken_by_student_id
+    LEFT JOIN marks m ON s.id = m.student_id
+    LEFT JOIN lessons l ON m.lesson_id = l.id
+    LEFT JOIN subjects su ON l.subject_id = su.id
     WHERE s.name = %s AND s.second_name = %s AND g.title = %s AND su.title = %s AND m.value = %s'''
     cursor.execute(query, (name, second_name, group_title, subject_title, mark_value))
 
