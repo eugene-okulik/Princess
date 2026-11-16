@@ -40,7 +40,7 @@ for row in data:
     if student:
         print(student)
     else:
-        print(f'Нет в БД: {student}')
+        print(f'Нет в БД: {row}')
 
 cursor.close()
 db.close()
