@@ -2,11 +2,16 @@ import os
 import argparse
 from datetime import datetime
 
+base_path = os.path.dirname(__file__)
+homework_path = os.path.dirname(os.path.dirname(base_path))
+default_logs_path = os.path.join(homework_path, 'eugene_okulik', 'data', 'logs')
+
 
 def read_file(file_path):
     with open(file_path, encoding='utf-8') as data_file:
         for line in data_file.readlines():
             yield line
+
 
 def is_new_block(line):
     words = line.split()
@@ -18,8 +23,9 @@ def is_new_block(line):
     except ValueError:
         return False
 
+
 parser = argparse.ArgumentParser()
-parser.add_argument("path", help="File or folder name")
+parser.add_argument("path", nargs="?", default=default_logs_path, help="File or folder name")
 parser.add_argument("--text", required=True, help="Text for search")
 args = parser.parse_args()
 
@@ -38,6 +44,7 @@ else:
 
 
 log_blocks = {}
+
 for file_path in files_list:
     file_name = os.path.basename(file_path)
     current_time = ""
@@ -60,8 +67,8 @@ for file_path in files_list:
         else:
             current_lines.append(line)
 
-    if current_time != "":
-        log_blocks[current_time] = {
+        if current_time != "":
+            log_blocks[current_time] = {
             "file": file_name,
             "start_line": start_line,
             "lines": current_lines
@@ -83,7 +90,9 @@ for log_time, block in log_blocks.items():
                     left_words = words[max(0, index - 5):index]
                     right_words = words[index + 1:index + 6]
                     snippet = " ".join(left_words + [f"[{word}]"] + right_words)
+
                     print(f"Файл: {block['file']} | Строка: {exact_line}")
                     print(f"Кусок ошибки: {snippet}")
                     print("-" * 50)
+
 print(f"Всего найдено совпадений: {found_count}")
