@@ -18,7 +18,7 @@ def is_new_block(line):
     if len(words) == 0:
         return False
     try:
-        datetime.strptime(words[0], "%Y-%m-%d")
+        datetime.strptime(words, "%Y-%m-%d")
         return True
     except ValueError:
         return False
@@ -28,7 +28,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("path", nargs="?", default=default_logs_path, help="File or folder name")
 parser.add_argument("--text", required=True, help="Text for search")
 args = parser.parse_args()
-
 
 files_list = []
 if os.path.isfile(args.path):
@@ -41,7 +40,6 @@ elif os.path.isdir(args.path):
 else:
     print("Путь не найден!")
     exit()
-
 
 log_blocks = {}
 
@@ -61,14 +59,14 @@ for file_path in files_list:
                 }
 
             words = line.split()
-            current_time = words[0] + " " + words[1]
+            current_time = words + " " + words
             start_line = line_num
             current_lines = [line]
         else:
             current_lines.append(line)
 
-        if current_time != "":
-            log_blocks[current_time] = {
+    if current_time != "":
+        log_blocks[current_time] = {
             "file": file_name,
             "start_line": start_line,
             "lines": current_lines
