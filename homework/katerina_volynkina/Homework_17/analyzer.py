@@ -74,7 +74,6 @@ for file_path in files_list:
             "lines": current_lines
         }
 
-
 search_word = args.text
 found_count = 0
 
